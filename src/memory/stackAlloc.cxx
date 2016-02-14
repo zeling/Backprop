@@ -1,7 +1,7 @@
 //
 // Created by Zeling on 16/2/14.
 //
-#include <iostream>
+//#include <iostream>
 #include <assert.h>
 #include "stackAlloc.hpp"
 
@@ -17,9 +17,9 @@ void *stackAlloc::alloc(size_t bytes) {
         buffer_.resize(cur_size>kThreshold ? cur_size+kThreshold : 2*cur_size);
     }
 
-    std::cout << "size in total:" << cur_size << '\n';
-    std::cout << "size used:" << stack_top_ << '\n';
-    std::cout << "size in need:" << bytes << '\n';
+//    std::cout << "size in total:" << cur_size << '\n';
+//    std::cout << "size used:" << stack_top_ << '\n';
+//    std::cout << "size in need:" << bytes << '\n';
 
     assert(stack_top_ + bytes < buffer_.size());
 
@@ -31,7 +31,7 @@ void *stackAlloc::alloc(size_t bytes) {
 }
 
 void stackAlloc::dealloc(void * /*p*/) {
-    std::cout << "freeing a blk of size:" << sizes_.back() << '\n';
+//    std::cout << "freeing a blk of size:" << sizes_.back() << '\nk';
     stack_top_ -= sizes_.back();
     sizes_.pop_back();
 }
