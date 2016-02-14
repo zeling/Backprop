@@ -29,6 +29,7 @@ namespace backprop {
 
             static stackAlloc instance_;
             std::vector<char> buffer_;
+            std::vector<size_t> sizes_;
             size_t stack_top_;
         };
 
